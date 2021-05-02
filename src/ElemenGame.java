@@ -23,7 +23,7 @@ public class ElemenGame {
             System.out.println(objElemenGame.getNama());
             arrAksi.addAll(objElemenGame.getArrAksi());
 
-            //perulangan untuk menampilkan aksi-aksi yang ditampung di arraylist objElemenGame
+            //perulangan untuk menampilkan aksi-aksi yang ditampung di arraylist Aksi
             for (Aksi aksi: objElemenGame.getArrAksi()){
                 System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
                 cc++;
