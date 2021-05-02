@@ -106,9 +106,6 @@ public class ElemenGame {
         this.arrAksi = arrAksi;
     }
 
-    public static void main(String[] args) {
-
-    }
 
 
 }
