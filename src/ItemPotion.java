@@ -1,27 +1,27 @@
 public class ItemPotion extends Item{
     //atribut khusus
-    private int nilaiEfek;
+    private int efek;
 
     //constructor
-    public ItemPotion(String nama, String deskripsi, int nilaiEfek) {
+    public ItemPotion(String nama, String deskripsi, int efek) {
         super(nama,deskripsi);
-        this.nilaiEfek = nilaiEfek;
+        this.efek = efek;
     }
 
     //getter setter
-    public int getNilaiEfek() {
-        return nilaiEfek;
+    public int getEfek() {
+        return efek;
     }
 
-    public void setNilaiEfek(int nilaiEfek) {
-        this.nilaiEfek = nilaiEfek;
+    public void setEfek(int efek) {
+        this.efek = efek;
     }
 
     public void printItem(){
-        System.out.println("Potion ini dapat memulihkan hp sebesar " + nilaiEfek );
+        System.out.println("Potion ini dapat memulihkan hp sebesar " + efek );
     }
 
     public void use(Karakter karakter){
-        karakter.setHp(karakter.getHp()+nilaiEfek);
+        karakter.setHp(karakter.getHp()+efek);
     }
 }
