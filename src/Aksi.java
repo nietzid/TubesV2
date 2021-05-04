@@ -5,6 +5,7 @@ public class Aksi {
     private ElemenGame objAksi;
 
     public void eksekusiAksi(){
+
         objAksi.prosesAksi(idAksi);
     }
 
