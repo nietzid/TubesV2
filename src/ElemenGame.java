@@ -34,8 +34,23 @@ public class ElemenGame {
 
     //prosedur pilihanAksi
     public void pilihanAksi(){
-        System.out.println("Pilihan dari aksi: ");
 
+        System.out.println(getNama());
+        arrAksi.addAll(getArrAksi());
+
+        //perulangan untuk menampilkan aksi-aksi yang ditampung di arraylist Aksi
+        for (Aksi aksi: getArrAksi()){
+            System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
+            cc++;
+        }
+
+        if (arrElGame.size() > 0){
+            System.out.printf("item %s memiliki \n: ",nama);
+            for (ElemenGame elemen: arrElGame){
+                initArrAksi();
+            }
+        }
+        System.out.println("Pilihan dari aksi: ");
         cc=1;
         arrAksi.clear();
         initArrAksi();
