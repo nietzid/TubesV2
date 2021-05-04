@@ -6,9 +6,7 @@ public class ElemenGame {
     //variabel
     protected String nama;
     protected String deskripsi;
-
     protected int cc;
-    protected ArrayList<ElemenGame> arrElGame = new ArrayList<>();
     //array untuk isi dari aksi-aksi
     protected ArrayList<Aksi> arrAksi = new ArrayList<>();
 
@@ -34,27 +32,15 @@ public class ElemenGame {
 
     //prosedur pilihanAksi
     public void pilihanAksi(){
-
-        System.out.println(getNama());
-        arrAksi.addAll(getArrAksi());
-
+        System.out.println("Pilihan dari aksi: ");
+        cc=1;
         //perulangan untuk menampilkan aksi-aksi yang ditampung di arraylist Aksi
         for (Aksi aksi: getArrAksi()){
             System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
             cc++;
         }
 
-        if (arrElGame.size() > 0){
-            System.out.printf("item %s memiliki \n: ",nama);
-            for (ElemenGame elemen: arrElGame){
-                initArrAksi();
-            }
-        }
-        System.out.println("Pilihan dari aksi: ");
-        cc=1;
-        arrAksi.clear();
-        initArrAksi();
-
+        //
         System.out.println("Masukkan pilihan: ");
         int pilih = in.nextInt();
 
@@ -62,25 +48,6 @@ public class ElemenGame {
         arrAksi.get(pilih-1).eksekusiAksi();
     }
 
-    //prosedur tambahElemen
-    public void tambahElemen(ElemenGame elemen){
-        arrElGame.add(elemen);
-    }
-
-    //prosedur hapusElemen
-    public void hapusElemen(ElemenGame elemen){
-        arrElGame.remove(elemen);
-    }
-
-    //prosedur cariElemen
-    public ElemenGame cariElemen(String namaElemen){
-        for (ElemenGame elemen:arrElGame){
-            if (namaElemen.equals(elemen.getNama())){
-                return elemen;
-            }
-        }
-        return null;
-    }
 
     //setter dan getter
     public String getNama() {
