@@ -1,0 +1,33 @@
+protected ArrayList<ElemenGame> arrElGame = new ArrayList<>();
+
+//ini yg tdinya di pilihan aksi
+System.out.println(getNama());
+arrAksi.addAll(getArrAksi());
+
+ if (arrElGame.size() > 0){
+            System.out.printf("item %s memiliki \n: ",nama);
+            for (ElemenGame elemen: arrElGame){
+                initArrAksi();
+          }
+      }
+
+//elemen
+//prosedur tambahElemen
+    public void tambahElemen(ElemenGame elemen){
+        arrElGame.add(elemen);
+    }
+
+    //prosedur hapusElemen
+    public void hapusElemen(ElemenGame elemen){
+        arrElGame.remove(elemen);
+    }
+
+    //prosedur cariElemen
+    public ElemenGame cariElemen(String namaElemen){
+        for (ElemenGame elemen:arrElGame){
+            if (namaElemen.equals(elemen.getNama())){
+                return elemen;
+            }
+        }
+        return null;
+    }
