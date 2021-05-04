@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class ElemenGame {
     public Scanner in = new Scanner(System.in);
     //variabel
-    private String nama;
-    private String deskripsi;
+    protected String nama;
+    protected String deskripsi;
 
-    private int cc;
-    private ArrayList<ElemenGame> arrElGame = new ArrayList<>();
+    protected int cc;
+    protected ArrayList<ElemenGame> arrElGame = new ArrayList<>();
     //array untuk isi dari aksi-aksi
-    private ArrayList<Aksi> arrAksi = new ArrayList<>();
+    protected ArrayList<Aksi> arrAksi = new ArrayList<>();
 
     //contructor
     public ElemenGame(String nama, String deskripsi) {
@@ -18,23 +18,11 @@ public class ElemenGame {
         this.deskripsi = deskripsi;
     }
 
-    //prosedur tampil aksi
-    private void initArrAksi (ElemenGame objElemenGame){
-        System.out.println(objElemenGame.getNama());
-        arrAksi.addAll(objElemenGame.getArrAksi());
+    //prosedur untuk mengisi aksi
+    public void initArrAksi (){
+        ArrayList<Aksi> arrAksi = new ArrayList<>();
+        arrAksi.add(new Aksi("Deskripsikan",101,this));
 
-        //perulangan untuk menampilkan aksi-aksi yang ditampung di arraylist Aksi
-        for (Aksi aksi: objElemenGame.getArrAksi()){
-            System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
-            cc++;
-        }
-
-        if (objElemenGame.arrElGame.size() > 0){
-            System.out.printf("item %s memiliki \n: ",objElemenGame,nama);
-            for (ElemenGame elemen: objElemenGame.arrElGame){
-                initArrAksi(elemen);
-            }
-        }
     }
 
     //prosedur proses aksi
@@ -50,7 +38,7 @@ public class ElemenGame {
 
         cc=1;
         arrAksi.clear();
-        initArrAksi(this);
+        initArrAksi();
 
         System.out.println("Masukkan pilihan: ");
         int pilih = in.nextInt();
@@ -97,8 +85,6 @@ public class ElemenGame {
     }
 
     public ArrayList<Aksi> getArrAksi() {
-        ArrayList<Aksi> arrAksi = new ArrayList<>();
-        arrAksi.add(new Aksi("Deskripsikan",101,this));
         return arrAksi;
     }
 
