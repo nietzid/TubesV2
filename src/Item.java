@@ -18,7 +18,6 @@ public class Item extends ElemenGame{
 
     //prosedur untuk mengisi arrAksi
     public void initArrAksi (){
-        arrAksi.clear();
         super.initArrAksi();
         arrAksi.add(new Aksi("Lihat Status Item",102,this));
         if(this.isDipegang){
@@ -58,11 +57,11 @@ public class Item extends ElemenGame{
     }
 
     public void use(){
-        pemilik.TastoEquip();
+        pemilik.TastoEquip(this);
     }
 
     public void disuse(){
-        pemilik.EquiptoTas();
+        pemilik.EquiptoTas(this);
     }
 
     public void printItem(){

@@ -18,9 +18,8 @@ public class ElemenGame {
 
     //prosedur untuk mengisi aksi
     public void initArrAksi (){
-        ArrayList<Aksi> arrAksi = new ArrayList<>();
+        arrAksi.clear();
         arrAksi.add(new Aksi("Deskripsikan",101,this));
-
     }
 
     //prosedur proses aksi
@@ -35,12 +34,11 @@ public class ElemenGame {
         System.out.println("Pilihan dari aksi: ");
         cc=1;
         //perulangan untuk menampilkan aksi-aksi yang ditampung di arraylist Aksi
-        for (Aksi aksi: getArrAksi()){
+        for (Aksi aksi: arrAksi){
             System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
             cc++;
         }
 
-        //
         System.out.println("Masukkan pilihan: ");
         int pilih = in.nextInt();
 
