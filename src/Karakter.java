@@ -55,4 +55,7 @@ public class Karakter extends ElemenGame{
     public void TastoEquip(){
 
     }
+    public void EquiptoTas(){
+
+    }
 }

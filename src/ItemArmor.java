@@ -3,9 +3,38 @@ public class ItemArmor extends Item{
     private int def;
 
     //constructor
-    public ItemArmor(String nama, String deskripsi, int def) {
-        super(nama,deskripsi);
+    public ItemArmor(String nama, String deskripsi, Karakter pemilik, int def) {
+        super(nama,deskripsi,pemilik);
         this.def = def;
+    }
+    public ItemArmor(String nama, String deskripsi, Wilayah lokasi, int def) {
+        super(nama,deskripsi,lokasi);
+        this.def = def;
+    }
+
+    public void prosesAksi(int idAksi) {
+        if (idAksi == 102) {
+            this.printItem();
+        }
+        if (idAksi == 201){
+            this.disuse();
+        }
+        else if (idAksi == 202) {
+            this.use();
+        }
+        else{
+            super.prosesAksi(idAksi);
+        }
+    }
+
+    public void use(){
+        super.use();
+        pemilik.setDef(pemilik.getDef()+def);
+    }
+
+    public void disuse(){
+        super.disuse();
+        pemilik.setDef(pemilik.getDef()-def);
     }
 
     //getter setter
@@ -19,9 +48,5 @@ public class ItemArmor extends Item{
 
     public void printItem(){
         System.out.println("Armor ini memiliki defense power sebesar " + def);
-    }
-
-    public void use(Karakter karakter){
-        karakter.setDef(karakter.getDef()+def);
     }
 }

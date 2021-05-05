@@ -3,9 +3,30 @@ public class ItemPotion extends Item{
     private int efek;
 
     //constructor
-    public ItemPotion(String nama, String deskripsi, int efek) {
-        super(nama,deskripsi);
+    public ItemPotion(String nama, String deskripsi, Karakter pemilik, int efek) {
+        super(nama,deskripsi,pemilik);
         this.efek = efek;
+    }
+    public ItemPotion(String nama, String deskripsi, Wilayah lokasi, int efek) {
+        super(nama,deskripsi,lokasi);
+        this.efek = efek;
+    }
+
+    public void prosesAksi(int idAksi) {
+        if (idAksi == 102) {
+            this.printItem();
+        }
+        else if (idAksi == 201) {
+            this.use();
+        }
+        else{
+            super.prosesAksi(idAksi);
+        }
+    }
+
+    public void use(){
+        super.use();
+        pemilik.setHp(pemilik.getHp()+efek);
     }
 
     //getter setter
@@ -19,9 +40,5 @@ public class ItemPotion extends Item{
 
     public void printItem(){
         System.out.println("Potion ini dapat memulihkan hp sebesar " + efek );
-    }
-
-    public void use(Karakter karakter){
-        karakter.setHp(karakter.getHp()+efek);
     }
 }
