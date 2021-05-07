@@ -30,7 +30,6 @@ public class Wilayah extends ElemenGame{
     }
 
     public void prosesAksi(int idAksi){
-        //makasi arfi krn km baik meskipun sekali ak kasi gelar yg sm kaya ajin alias G.tng
     }
 
     public void addMonster(Karakter monster){
