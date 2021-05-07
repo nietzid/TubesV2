@@ -46,10 +46,10 @@ public class Item extends ElemenGame{
             this.use();
         }
         else if (idAksi == 301){
-            //nyambung ke karakter
+            pemilik.dropItem(this);
         }
         else if (idAksi == 302){
-            //nyambung ke karakter
+            lokasi.getKarakterAktif().pungutItem(this);
         }
         else{
             super.prosesAksi(idAksi);

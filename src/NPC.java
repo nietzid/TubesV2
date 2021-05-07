@@ -30,7 +30,7 @@ public class NPC extends ElemenGame{
 
     public void prosesAksi(int idAksi) {
         if (idAksi == 103) {
-            interaksi(Karakter);
+            interaksi(wilAktif.getKarakterAktif());
             isKnow = true;
         }else if (idAksi == 203) {
             if(isKnow){
@@ -40,11 +40,16 @@ public class NPC extends ElemenGame{
             }
         }else if (idAksi == 303){
             if(isKnow){
-                giveItem(Item, Karakter);
+                if(loot.isEmpty()) {
+                    System.out.println("Saya sudah tidak punya apa-apa");
+                }else
+                    giveItem(loot.get(0), wilAktif.getKarakterAktif());
             }else {
                 System.out.println("kenalan dulu yuk dangan NPC");
             }
         }
+        else
+            super.prosesAksi(idAksi);
     }
 
     public void printItem(){
@@ -65,5 +70,4 @@ public class NPC extends ElemenGame{
     public void addItem(Item item){
         loot.add(item);
     }
-
 }

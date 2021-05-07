@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Karakter extends ElemenGame{
     //atribut
@@ -39,6 +38,8 @@ public class Karakter extends ElemenGame{
         else if (idAksi == 301){
             this.lihatTas();
         }
+        else
+            super.prosesAksi(idAksi);
     }
 
     public void serang(Karakter karakter) {
@@ -73,7 +74,6 @@ public class Karakter extends ElemenGame{
                 if ( equipment.get(i).equals(item)){
                     lokasi.addItem(item);
                     equipment.remove(item);
-                    isFind = true;
                 }
             }
         }
@@ -121,12 +121,12 @@ public class Karakter extends ElemenGame{
     }
 
     public void infoPlayer(){
+        System.out.println("Nama = " + nama);
         System.out.println("level = " + level);
         System.out.println("exp = " + exp);
         System.out.println("hp = " + hp);
         System.out.println("att = " + att);
         System.out.println("def = " + def);
-        this.pilihanAksi();
         for (Item item: equipment){
             System.out.printf("%d. %s \n",cc,item.getNama());
             cc++;
