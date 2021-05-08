@@ -14,7 +14,7 @@ public class Karakter extends ElemenGame{
     private ArrayList<Item> equipment = new ArrayList<>();
 
     //constructor
-    public Karakter(String nama, String deskripsi, Wilayah lokasi, int hp, int def, int att) {
+    public Karakter(String nama, String deskripsi, int hp, int def, int att) {
         super(nama,deskripsi);
         this.hp = hp;
         this.def = def;
@@ -22,7 +22,6 @@ public class Karakter extends ElemenGame{
         this.exp = 0;
         this.level = 1;
         maxSlot = 4;
-        this.lokasi = lokasi;
     }
 
     public void initArrAksi (){
