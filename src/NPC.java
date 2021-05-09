@@ -10,6 +10,9 @@ public class NPC extends ElemenGame{
         super(nama, deskripsi);
         this.wilAktif = wilAktif;
     }
+    public NPC(String nama, String deskripsi){
+        super(nama, deskripsi);
+    }
 
     public void interaksi(Karakter karakter){
         System.out.println("halo " +karakter.nama);
@@ -18,6 +21,7 @@ public class NPC extends ElemenGame{
         System.out.println("anda ditugaskan untuk membunuh semua monster yang ada disini");
         System.out.println("agar bisa menyelamatkan seluruh dunia ini");
         System.out.println("untuk bisa membantu mengalahkan musuh anda harus memiliki item yang kuat");
+        pilihanAksi();
     }
 
     @Override
@@ -30,7 +34,7 @@ public class NPC extends ElemenGame{
 
     public void prosesAksi(int idAksi) {
         if (idAksi == 103) {
-            interaksi(wilAktif.getKarakterAktif());
+            System.out.println("Halo, salam kenal");
             isKnow = true;
         }else if (idAksi == 203) {
             if(isKnow){
@@ -53,6 +57,7 @@ public class NPC extends ElemenGame{
     }
 
     public void printItem(){
+        cc = 0;
         for (Item item: loot){
             System.out.printf("%d. %s \n",cc,item.getNama());
             cc++;
@@ -60,11 +65,37 @@ public class NPC extends ElemenGame{
     }
 
     public void giveItem(Item item, Karakter karakter){
-        karakter.addItem(item);
-        loot.remove(item);
         if (loot.isEmpty()){
             System.out.println("Item sudah diberikan semua");
+        }else {
+            karakter.addItem(item);
+            item.setPemilik(karakter);
+            loot.remove(item);
         }
+    }
+
+    public ArrayList<Item> getLoot() {
+        return loot;
+    }
+
+    public void setLoot(ArrayList<Item> loot) {
+        this.loot = loot;
+    }
+
+    public Wilayah getWilAktif() {
+        return wilAktif;
+    }
+
+    public void setWilAktif(Wilayah wilAktif) {
+        this.wilAktif = wilAktif;
+    }
+
+    public boolean isKnow() {
+        return isKnow;
+    }
+
+    public void setKnow(boolean know) {
+        isKnow = know;
     }
 
     public void addItem(Item item){

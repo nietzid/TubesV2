@@ -6,21 +6,22 @@ public class Wilayah extends ElemenGame{
     private ArrayList<Item> loot = new ArrayList<>();
     private ArrayList<Karakter> monsterDisini = new ArrayList<>();
     private ArrayList<Karakter> arrNPC = new ArrayList<>();
-    private NPC warga;
+    private ArrayList<NPC> arrWarga = new ArrayList<>();
     protected Karakter karakterAktif;
 
-    public Wilayah (String nama,String deskripsi, String misi, NPC warga){
+    public Wilayah (String nama,String deskripsi, String misi){
         super(nama,deskripsi);
         this.misi = misi;
-        this.warga = warga;
     }
 
     public void addItem(Item item){
         loot.add(item);
+        item.setDiambil(false);
     }
 
     public void removeItem(Item item){
         loot.remove(item);
+        item.setLokasi(null);
     }
 
     public void initArrAksi (){
@@ -33,7 +34,7 @@ public class Wilayah extends ElemenGame{
 
     public void prosesAksi(int idAksi){
         if (idAksi == 202) {
-            this.warga.interaksi(karakterAktif);
+            this.arrWarga.get(0).interaksi(karakterAktif);
         }
         else if (idAksi == 302) {
             this.lihatMusuh();
@@ -49,7 +50,7 @@ public class Wilayah extends ElemenGame{
     }
 
     public void lihatMusuh(){
-        cc = 0;
+        cc = 1;
         for (Karakter o: monsterDisini) {
             System.out.print(cc + ". ");
             o.infoPlayer();
@@ -57,7 +58,7 @@ public class Wilayah extends ElemenGame{
     }
 
     public void lihatItem(){
-        cc=1;
+        cc = 1;
         for (Item item: loot){
             System.out.printf("%d. %s \n",cc,item.getNama());
             cc++;
@@ -106,6 +107,9 @@ public class Wilayah extends ElemenGame{
 
     public void setMonsterDisini(ArrayList<Karakter> monsterDisini) {
         this.monsterDisini = monsterDisini;
+        for (Karakter monster : monsterDisini) {
+            monster.setLokasi(this);
+        }
     }
 
     public ArrayList<Karakter> getArrNPC() {
@@ -116,19 +120,19 @@ public class Wilayah extends ElemenGame{
         this.arrNPC = arrNPC;
     }
 
-    public NPC getWarga() {
-        return warga;
-    }
-
-    public void setWarga(NPC warga) {
-        this.warga = warga;
-    }
-
     public Karakter getKarakterAktif() {
         return karakterAktif;
     }
 
     public void setKarakterAktif(Karakter karakterAktif) {
         this.karakterAktif = karakterAktif;
+    }
+
+    public ArrayList<NPC> getArrWarga() {
+        return arrWarga;
+    }
+
+    public void setArrWarga(ArrayList<NPC> arrWarga) {
+        this.arrWarga = arrWarga;
     }
 }

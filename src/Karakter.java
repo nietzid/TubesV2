@@ -7,8 +7,9 @@ public class Karakter extends ElemenGame{
     private int att;
     private int level;
     private int exp;
-    private int slot;
+    private int slot = 0;
     private int maxSlot;
+    private boolean isAlive = true;
     protected Wilayah lokasi;
     private ArrayList<Item> tas = new ArrayList<>();
     private ArrayList<Item> equipment = new ArrayList<>();
@@ -46,6 +47,7 @@ public class Karakter extends ElemenGame{
     }
 
     public void addItem(Item item) {
+        item.setDiambil(true);
         tas.add(item);
     }
 
@@ -57,6 +59,8 @@ public class Karakter extends ElemenGame{
         Wilayah wilayah = item.getLokasi();
         wilayah.removeItem(item);
         tas.add(item);
+        item.setPemilik(this);
+        item.setDiambil(true);
     }
 
     public void dropItem(Item item){
@@ -65,7 +69,11 @@ public class Karakter extends ElemenGame{
             if ( tas.get(i).equals(item)){
                 lokasi.addItem(item);
                 tas.remove(item);
+                item.setPemilik(null);
+                item.setLokasi(lokasi);
+                item.setDiambil(false);
                 isFind = true;
+
             }
         }
         if (!isFind){
@@ -73,20 +81,26 @@ public class Karakter extends ElemenGame{
                 if ( equipment.get(i).equals(item)){
                     lokasi.addItem(item);
                     equipment.remove(item);
+                    item.setPemilik(null);
+                    item.setLokasi(lokasi);
+                    item.setDiambil(false);
                 }
             }
         }
     }
 
     public void TastoEquip(Item item){
+        item.setDipegang(true);
         if (maxSlot-slot >0 ) {
-            System.out.println("Slot tersisa saat ini " + (maxSlot - slot) + " slot");
             equipment.add(item);
             tas.remove(item);
+            slot++;
+            System.out.println("Slot tersisa saat ini " + (maxSlot - slot) + " slot");
         } else System.out.println("Slot Equipment Penuh");
     }
 
     public void EquiptoTas(Item item){
+        item.setDipegang(false);
         tas.add(item);
         equipment.remove(item);
     }
@@ -105,7 +119,7 @@ public class Karakter extends ElemenGame{
             lvup();
         }
         else{
-            //disini harusnya game over
+            isAlive = false;
         }
     }
 
@@ -126,18 +140,23 @@ public class Karakter extends ElemenGame{
         System.out.println("hp = " + hp);
         System.out.println("att = " + att);
         System.out.println("def = " + def);
-        for (Item item: equipment){
-            System.out.printf("%d. %s \n",cc,item.getNama());
-            cc++;
-        }
+        cc = 1;
+        if(equipment.size() != 0 && lokasi.getKarakterAktif() == this) {
+            System.out.println("Isi equipment");
+            for (Item item : equipment) {
+                System.out.printf("%d. %s \n", cc, item.getNama());
+                cc++;
+            }
 
-        System.out.println("Masukkan pilihan: ");
-        int pilih = in.nextInt();
-        Item selectedItem = equipment.get(pilih-1);
-        selectedItem.pilihanAksi();
+            System.out.println("Masukkan pilihan: ");
+            int pilih = in.nextInt();
+            Item selectedItem = equipment.get(pilih - 1);
+            selectedItem.pilihanAksi();
+        }
     }
 
     public void lihatTas(){
+        cc = 1;
         for (Item item: tas){
             System.out.printf("%d. %s \n",cc,item.getNama());
             cc++;
@@ -219,6 +238,9 @@ public class Karakter extends ElemenGame{
 
     public void setTas(ArrayList<Item> tas) {
         this.tas = tas;
+        for (Item item: tas) {
+            item.setDiambil(true);
+        }
     }
 
     public ArrayList<Item> getEquipment() {
@@ -227,5 +249,13 @@ public class Karakter extends ElemenGame{
 
     public void setEquipment(ArrayList<Item> equipment) {
         this.equipment = equipment;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 }

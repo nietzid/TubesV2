@@ -16,7 +16,7 @@ public class ItemSenjata extends Item{
         if (idAksi == 102) {
             this.printItem();
         }
-        if (idAksi == 201){
+        else if (idAksi == 201){
             this.disuse();
         }
         else if (idAksi == 202) {

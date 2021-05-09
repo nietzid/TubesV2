@@ -39,7 +39,6 @@ public class ElemenGame {
             System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
             cc++;
         }
-
         System.out.print("Masukkan pilihan: ");
         int pilih = in.nextInt();
 

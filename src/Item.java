@@ -2,18 +2,19 @@ import java.util.*;
 public class Item extends ElemenGame{
     protected Karakter pemilik;
     protected Wilayah lokasi;
-    protected boolean isDiambil;
-    protected boolean isDipegang;
+    protected boolean isDiambil = false;
+    protected boolean isDipegang = false;
 
-    public Item(String deskripsi, String nama, Karakter pemilik) {
-        super(deskripsi,nama);
-        this.isDiambil = true;
+    public Item(String nama, String deskripsi,  Karakter pemilik) {
+        super(nama,deskripsi);
         this.pemilik = pemilik;
     }
-    public Item(String deskripsi, String nama, Wilayah lokasi) {
+    public Item(String nama, String deskripsi,  Wilayah lokasi) {
         super(deskripsi,nama);
-        this.isDiambil = false;
         this.lokasi = lokasi;
+    }
+    public Item(String nama, String deskripsi) {
+        super(deskripsi,nama);
     }
 
     //prosedur untuk mengisi arrAksi
@@ -39,10 +40,10 @@ public class Item extends ElemenGame{
         if (idAksi == 102){
             this.printItem();
         }
-        if (idAksi == 201){
+        else if (idAksi == 201){
             this.disuse();
         }
-        if (idAksi == 202){
+        else if (idAksi == 202){
             this.use();
         }
         else if (idAksi == 301){
@@ -90,5 +91,13 @@ public class Item extends ElemenGame{
 
     public void setDipegang(boolean dipegang) {
         isDipegang = dipegang;
+    }
+
+    public boolean isDiambil() {
+        return isDiambil;
+    }
+
+    public void setDiambil(boolean diambil) {
+        isDiambil = diambil;
     }
 }

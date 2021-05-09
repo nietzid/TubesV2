@@ -3,10 +3,13 @@ public class Aksi {
     private String namaAksi;
     private int idAksi;
     private ElemenGame objAksi;
+    private GameEngine obj;
 
     public void eksekusiAksi(){
-
-        objAksi.prosesAksi(idAksi);
+        if (objAksi != null)
+            objAksi.prosesAksi(idAksi);
+        else
+            obj.prosesAksi(idAksi);
     }
 
     //konstruktor
@@ -15,6 +18,12 @@ public class Aksi {
         this.namaAksi = namaAksi;
         this.idAksi = idAksi;
         this.objAksi = objAksi;
+    }
+
+    public Aksi(String namaAksi, int idAksi, GameEngine objAksi) {
+        this.namaAksi = namaAksi;
+        this.idAksi = idAksi;
+        this.obj = objAksi;
     }
 
     //setter dan getter
