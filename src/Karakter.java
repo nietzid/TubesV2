@@ -43,7 +43,12 @@ public class Karakter extends ElemenGame{
     }
 
     public void serang(Karakter karakter) {
-        karakter.hp -= att-karakter.def;
+        int temp = att-karakter.def;
+        if(temp > 0){
+            karakter.hp -= temp;
+            System.out.println(this.nama + "Berhasil menyerang " + karakter.getNama() + " sebesar " + (att-karakter.getDef()));
+        }else
+            System.out.println(this.nama + "Gagal menyerang " + karakter.getNama() );
     }
 
     public void addItem(Item item) {
@@ -108,7 +113,8 @@ public class Karakter extends ElemenGame{
     public void BattleSystem(Karakter bot){ //selipin lv up + npc
         while (this.getHp() > 0 && bot.getHp() > 0){
             int index = (int)(Math.random() * lokasi.getArrNPC().size());
-            this.serang(lokasi.getArrNPC().get(index));
+            lokasi.getArrNPC().get(index).serang(bot);
+            this.serang(bot);
             bot.serang(this);
         }
         if(bot.getHp() <=0){
@@ -116,10 +122,12 @@ public class Karakter extends ElemenGame{
             lokasi.getLoot().addAll(bot.tas);
             lokasi.getLoot().addAll(bot.getEquipment());
             lokasi.getMonsterDisini().remove(bot);
+            System.out.println(bot.getNama() + " Meninggal");
             lvup();
         }
         else{
             isAlive = false;
+            System.out.println(bot.getNama() + " Meninggal");
         }
     }
 

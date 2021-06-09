@@ -54,6 +54,7 @@ public class Wilayah extends ElemenGame{
         for (Karakter o: monsterDisini) {
             System.out.print(cc + ". ");
             o.infoPlayer();
+            cc++;
         }
     }
 

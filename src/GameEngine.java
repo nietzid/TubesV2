@@ -5,7 +5,7 @@ public class GameEngine {
     protected ArrayList<Aksi> arrAksi = new ArrayList<>();
     Wilayah wilAktif;
     //bikin player
-    Karakter player = new Karakter("Arfi", "Seorang Petualang", 1000, 90, 100);
+    Karakter player = new Karakter("Arfi", "Seorang Petualang", 1000, 30, 100);
     ArrayList<Item> tasPlayer = new ArrayList<>();
     ItemSenjata pedang = new ItemSenjata("Pedang Pendek", "Sebuah pedang yang tidak panjang", player, 30);
     ItemPotion ramuanSehat = new ItemPotion("Ramuan Kesehatan", "Sebuah ramuan untuk menambahkan kesehatan", player, 35);
@@ -249,6 +249,7 @@ public class GameEngine {
     public void cekWilayah(){
         if(wilAktif.getMonsterDisini().size()==0){
             int getposition;
+            //pindah wilayah
 //            wilAktif =
 
         }
@@ -273,6 +274,6 @@ public class GameEngine {
             gameEngine.setWilayahAktif(gameEngine.wilayah1);
             gameEngine.pilihanAksi();
         }
-        System.out.println(gameEngine.wilayah2.getArrWarga().get(0).getLoot());
+//        System.out.println(gameEngine.wilayah2.getArrWarga().get(0).getLoot());
     }
 }
