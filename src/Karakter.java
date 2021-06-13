@@ -46,9 +46,10 @@ public class Karakter extends ElemenGame{
         int temp = att-karakter.def;
         if(temp > 0){
             karakter.hp -= temp;
-            System.out.println(this.nama + "Berhasil menyerang " + karakter.getNama() + " sebesar " + (att-karakter.getDef()));
+            System.out.println(this.nama + " Berhasil menyerang " + karakter.getNama() + " sebesar " + (att-karakter.getDef()));
+            System.out.println("");
         }else
-            System.out.println(this.nama + "Gagal menyerang " + karakter.getNama() );
+            System.out.println(this.nama + " Gagal menyerang " + karakter.getNama() );
     }
 
     public void addItem(Item item) {
@@ -100,7 +101,7 @@ public class Karakter extends ElemenGame{
             equipment.add(item);
             tas.remove(item);
             slot++;
-            System.out.println("Slot tersisa saat ini " + (maxSlot - slot) + " slot");
+//            System.out.println("Slot tersisa saat ini " + (maxSlot - slot) + " slot");
         } else System.out.println("Slot Equipment Penuh");
     }
 
@@ -142,12 +143,12 @@ public class Karakter extends ElemenGame{
     }
 
     public void infoPlayer(){
-        System.out.println("Nama = " + nama);
+        System.out.println("Nama  = " + nama);
         System.out.println("level = " + level);
-        System.out.println("exp = " + exp);
-        System.out.println("hp = " + hp);
-        System.out.println("att = " + att);
-        System.out.println("def = " + def);
+        System.out.println("exp   = " + exp);
+        System.out.println("hp    = " + hp);
+        System.out.println("att   = " + att);
+        System.out.println("def   = " + def);
         cc = 1;
         if(equipment.size() != 0 && lokasi.getKarakterAktif() == this) {
             System.out.println("Isi equipment");
@@ -160,6 +161,7 @@ public class Karakter extends ElemenGame{
             int pilih = in.nextInt();
             Item selectedItem = equipment.get(pilih - 1);
             selectedItem.pilihanAksi();
+
         }
     }
 

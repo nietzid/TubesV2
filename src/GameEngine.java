@@ -121,22 +121,25 @@ public class GameEngine {
         }
     }
 
+
     public void pilihanAksi(){
         Scanner scanner = new Scanner(System.in);
+            initArrAksi();
+            System.out.println("Selamat Datang di Wilayah " + wilAktif.getNama()+ "!");
+            System.out.println("Misi anda di wilayah ini adalah " + wilAktif.getMisi());
+            int cc=1;
+            for (Aksi aksi: arrAksi){
+                System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
+                cc++;
+            }
 
-        initArrAksi();
-        System.out.println("Selamat datang di " + wilAktif.getNama()+ "!");
-        int cc=1;
-        for (Aksi aksi: arrAksi){
-            System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
-            cc++;
-        }
+            System.out.print("Masukkan pilihan: ");
+            int pilih = scanner.nextInt();
+            System.out.println(" ");
+            System.out.println("****************************");
+            arrAksi.get(pilih-1).eksekusiAksi();
 
-        System.out.print("Masukkan pilihan: ");
-        int pilih = scanner.nextInt();
 
-        System.out.println("****************************");
-        arrAksi.get(pilih-1).eksekusiAksi();
     }
 
     public void initPlayer() {
@@ -266,14 +269,30 @@ public class GameEngine {
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         GameEngine gameEngine = new GameEngine();
         gameEngine.initPlayer();
         gameEngine.initNPC();
         gameEngine.initWilayah();
-        while(gameEngine.player.isAlive()){
-            gameEngine.setWilayahAktif(gameEngine.wilayah1);
-            gameEngine.pilihanAksi();
+        System.out.println("DEMON HUNTER");
+        System.out.println("lanjut info game");
+
+        System.out.println("1.Mulai Main Game");
+        System.out.println("2.Keluar");
+        System.out.print("Masukkan Pilihan: ");
+        int pilih1 = scanner.nextInt();
+        System.out.println(" ");
+        if (pilih1 == 1){
+            while(gameEngine.player.isAlive()){
+                gameEngine.setWilayahAktif(gameEngine.wilayah1);
+                gameEngine.pilihanAksi();
+            }
+
+        }else {
+            System.out.println("Bye");
+
         }
+
 //        System.out.println(gameEngine.wilayah2.getArrWarga().get(0).getLoot());
     }
 }
