@@ -5,7 +5,7 @@ public class GameEngine {
     protected ArrayList<Aksi> arrAksi = new ArrayList<>();
     Wilayah wilAktif;
     //bikin player
-    Karakter player = new Karakter("Arfi", "Seorang Petualang", 1000, 30, 100);
+    Karakter player = new Karakter("Rahma", "Seorang Petualang", 1000, 30, 100);
     ArrayList<Item> tasPlayer = new ArrayList<>();
     ItemSenjata pedang = new ItemSenjata("Pedang Pendek", "Sebuah pedang yang tidak panjang", player, 30);
     ItemPotion ramuanSehat = new ItemPotion("Ramuan Kesehatan", "Sebuah ramuan untuk menambahkan kesehatan", player, 35);
@@ -125,6 +125,8 @@ public class GameEngine {
     public void pilihanAksi(){
         Scanner scanner = new Scanner(System.in);
             initArrAksi();
+            System.out.println(" ");
+            System.out.println("__________----------***********----------__________");
             System.out.println("Selamat Datang di Wilayah " + wilAktif.getNama()+ "!");
             System.out.println("Misi anda di wilayah ini adalah " + wilAktif.getMisi());
             int cc=1;
@@ -136,7 +138,7 @@ public class GameEngine {
             System.out.print("Masukkan pilihan: ");
             int pilih = scanner.nextInt();
             System.out.println(" ");
-            System.out.println("****************************");
+            System.out.println("__________----------***********----------__________");
             arrAksi.get(pilih-1).eksekusiAksi();
 
 
@@ -304,9 +306,12 @@ public class GameEngine {
         System.out.println("  __/\\ \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t        /\\__");
         System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t       |____|");
         System.out.println("    \\/__________________________________________________________________________________________\\/");
+        System.out.println(" ");
+        System.out.println(" ");
 
         int pilih1=1;
         while (pilih1!=0){
+            System.out.println("__________----------***********----------__________");
             System.out.println("1.Info game");
             System.out.println("2.Mulai Main Game");
             System.out.println("0.Keluar");
@@ -314,6 +319,7 @@ public class GameEngine {
             pilih1 = scanner.nextInt();
 
             if (pilih1 == 1){
+                System.out.println("__________----------***********----------__________");
                 System.out.println("Cara Bermain: ");
                 System.out.println("Anda harus menjelajahi 5 wilayah di Negara Katara secara berurutan.");
                 System.out.println("4 wilayah pedesaan dan 1 singgasana Iblis.");

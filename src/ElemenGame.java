@@ -35,6 +35,7 @@ public class ElemenGame {
     //prosedur pilihanAksi
     public void pilihanAksi(){
         initArrAksi();
+        System.out.println(" ");
         System.out.println("Pilihan aksi dari " + this.nama+ " : ");
         cc=1;
         //perulangan untuk menampilkan aksi-aksi yang ditampung di arraylist Aksi
@@ -45,7 +46,6 @@ public class ElemenGame {
         System.out.print("Masukkan pilihan: ");
         int pilih = in.nextInt();
 
-        System.out.println("****************************");
         arrAksi.get(pilih-1).eksekusiAksi();
     }
 
