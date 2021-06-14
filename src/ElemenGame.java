@@ -26,6 +26,7 @@ public class ElemenGame {
     //prosedur proses aksi
     public void prosesAksi(int idAksi){
         if (idAksi == 101){
+            System.out.println("__________----------***********----------__________");
             System.out.printf("Deskripsi: %s \n",deskripsi);
         }else if (idAksi == 001){
             System.out.println();

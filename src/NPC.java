@@ -15,6 +15,7 @@ public class NPC extends ElemenGame{
     }
 
     public void interaksi(Karakter karakter){
+        System.out.println("\n__________----------***********----------__________");
         System.out.println("halo " +karakter.nama);
         System.out.println("Selamat datang di wilayah " +wilAktif.nama);
         System.out.println("wilayah ini adalah " +wilAktif.deskripsi);
@@ -34,21 +35,26 @@ public class NPC extends ElemenGame{
 
     public void prosesAksi(int idAksi) {
         if (idAksi == 103) {
+            System.out.println("\n__________----------***********----------__________");
             System.out.println("Halo, salam kenal");
             isKnow = true;
         }else if (idAksi == 203) {
             if(isKnow){
                 printItem();
             }else {
+                System.out.println("\n__________----------***********----------__________");
                 System.out.println("kenalan dulu yuk dangan NPC");
             }
         }else if (idAksi == 303){
             if(isKnow){
                 if(loot.isEmpty()) {
+                    System.out.println("\n__________----------***********----------__________");
                     System.out.println("Saya sudah tidak punya apa-apa");
                 }else
-                    giveItem(loot.get(0), wilAktif.getKarakterAktif());
+                    System.out.println("\n__________----------***********----------__________");
+                giveItem(loot.get(0), wilAktif.getKarakterAktif());
             }else {
+                System.out.println("\n__________----------***********----------__________");
                 System.out.println("kenalan dulu yuk dangan NPC");
             }
         }
@@ -68,6 +74,7 @@ public class NPC extends ElemenGame{
         if (loot.isEmpty()){
             System.out.println("Item sudah diberikan semua");
         }else {
+            System.out.println("Terimalah, " + item.getNama()+ " ini, wahai anak muda");
             karakter.addItem(item);
             item.setPemilik(karakter);
             loot.remove(item);

@@ -37,12 +37,15 @@ public class Wilayah extends ElemenGame{
             this.arrWarga.get(0).interaksi(karakterAktif);
         }
         else if (idAksi == 302) {
+            System.out.println("\n__________----------***********----------__________");
             this.lihatMusuh();
         }
         else if (idAksi == 402) {
+            System.out.println("\n__________----------***********----------__________");
             this.karakterAktif.BattleSystem(pilihMusuh());
         }
         else if (idAksi == 502) {
+            System.out.println("\n__________----------***********----------__________");
             this.lihatItem();
         }
         else

@@ -5,24 +5,24 @@ public class GameEngine {
     protected ArrayList<Aksi> arrAksi = new ArrayList<>();
     Wilayah wilAktif;
     //bikin player
-    Karakter player = new Karakter("Rahma", "Seorang Petualang", 1000, 30, 100);
+    Karakter player = new Karakter("Shinta the Explorer (Player)", "Seorang Petualang", 1000000, 30, 100);
     ArrayList<Item> tasPlayer = new ArrayList<>();
     ItemSenjata pedang = new ItemSenjata("Pedang Pendek", "Sebuah pedang yang tidak panjang", player, 30);
     ItemPotion ramuanSehat = new ItemPotion("Ramuan Kesehatan", "Sebuah ramuan untuk menambahkan kesehatan", player, 35);
 
     //bikin NPC
     ArrayList<Karakter> listNPC = new ArrayList<>();
-    Karakter npc1 = new Karakter("Oik", "Teman sang petualang yang membantu melawan musuh", 800, 90, 70);
+    Karakter npc1 = new Karakter("Oik (NPC)", "Teman sang petualang yang membantu melawan musuh", 800, 90, 70);
     ArrayList<Item> tasNPC1 = new ArrayList<>();
     ItemSenjata pedangKayu = new ItemSenjata("Pedang kayu", "Sebuah pedang kayu", npc1, 20);
     ItemArmor perisai = new ItemArmor("Perisai", "Perisai biasa", npc1, 10);
 
-    Karakter npc2 = new Karakter("Howl", "Teman sang petualang yang membantu melawan musuh", 800, 90, 70);
+    Karakter npc2 = new Karakter("Howl (NPC)", "Teman sang petualang yang membantu melawan musuh", 800, 90, 70);
     ArrayList<Item> tasNPC2 = new ArrayList<>();
     ItemSenjata tongkatSihir = new ItemSenjata("Tongkat Sihir", "Tongkat sihir untuk memberi damage kepada musuh", npc2, 50);
     ItemArmor jubah = new ItemArmor("Jubah", "Sebuah jubah pelindung", npc2, 10);
 
-    Karakter npc3 = new Karakter("Alice", "", 800, 90, 70);
+    Karakter npc3 = new Karakter("Alice (NPC)", "", 800, 90, 70);
     ArrayList<Item> tasNPC3 = new ArrayList<>();
     ItemArmor perisaiBesi = new ItemArmor("Perisai Besi", "Sebuah perisai besi", npc1, 10);
     ItemSenjata pedangPanjang = new ItemSenjata("Pedang Besi", "Pedang besi panjang", npc3, 80);
@@ -34,8 +34,7 @@ public class GameEngine {
     ArrayList<NPC> arrWarga1 = new ArrayList<>();
     NPC wargaWil1 = new NPC("Budi", "Warga yang ada di wilayah 1", wilayah1);
     ArrayList<Karakter> listMonster1 = new ArrayList<>();
-    Karakter monsterKatak = new Karakter("Monster Katak", "Monster katak raksasa dengan mata merah dan lidah panjang", 200, 50, 30);
-    Karakter pocong = new Karakter("Pocong", "Terlihat mengemaskan walau ternyata menyeramkan", 250, 50, 90);
+    Karakter monsterKatak = new Karakter("Monster Katak (Monster)", "Monster katak raksasa dengan mata merah dan lidah panjang", 200, 50, 30); Karakter pocong = new Karakter("Pocong (Monster)", "Terlihat mengemaskan walau ternyata menyeramkan", 250, 50, 90);
     ArrayList<Item> listItem1 = new ArrayList<>();
     ItemSenjata panah = new ItemSenjata("Geenna Arrow", "Sebuah panah degan ujung busurnya terdapat api", wilayah1, 80);
     ItemSenjata pisau = new ItemSenjata("Pisau", "Sebuah pisau biasa", wilayah1, 40);
@@ -62,10 +61,10 @@ public class GameEngine {
     //wilayah 3
     Wilayah wilayah3 = new Wilayah("Vouno", "Wilayah yang terdapat pegunungan dengan pohon yang sangat tinggi juga gelap gulita.", "Cari dan tebang pohon kehidupan iblis, basmi semua monster dan temukan akses untuk menuju wilayah selanjutnya");
     ArrayList<NPC> arrWarga3 = new ArrayList<>();
-    NPC wargaWil3 = new NPC("Wuddy", "Seorang warga yang tinggal di dekat pegunungan", wilayah3);
+    NPC wargaWil3 = new NPC("Wuddy (NPC)", "Seorang warga yang tinggal di dekat pegunungan", wilayah3);
     ArrayList<Karakter> listMonster3 = new ArrayList<>();
-    Karakter troll = new Karakter("Troll", "Monster berwarna hijau tinggi juga memiliki lendir", 400, 90, 90); //bisa lansung diisi disini
-    Karakter kuyang = new Karakter("Kuyang", "Hantu yang hanya memiliki kepala", 500, 90, 100);
+    Karakter troll = new Karakter("Troll (Monster)", "Monster berwarna hijau tinggi juga memiliki lendir", 400, 90, 90); //bisa lansung diisi disini
+    Karakter kuyang = new Karakter("Kuyang (Monster)", "Hantu yang hanya memiliki kepala", 500, 90, 100);
     ArrayList<Item> listItem3 = new ArrayList<>();
     ItemSenjata venenoso =new ItemSenjata("Venenoso", "Pedang beracun yang perlahan akan membunuh musuhh", wilayah3, 60);
     ItemArmor baju = new ItemArmor("Baju Zirah", "Baju zirah untuk melindungi dari serangan musuh", wilayah3, 45);
@@ -124,24 +123,22 @@ public class GameEngine {
 
     public void pilihanAksi(){
         Scanner scanner = new Scanner(System.in);
-            initArrAksi();
-            System.out.println(" ");
-            System.out.println("__________----------***********----------__________");
-            System.out.println("Selamat Datang di Wilayah " + wilAktif.getNama()+ "!");
-            System.out.println("Misi anda di wilayah ini adalah " + wilAktif.getMisi());
-            int cc=1;
-            for (Aksi aksi: arrAksi){
-                System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
-                cc++;
-            }
+        initArrAksi();
+        System.out.println(" ");
+        System.out.println("__________----------***********----------__________");
+        System.out.println("Selamat Datang di Wilayah " + wilAktif.getNama()+ "!");
+        System.out.println("Misi anda di wilayah ini adalah " + wilAktif.getMisi());
+        int cc=1;
+        for (Aksi aksi: arrAksi){
+            System.out.printf("%d. %s \n",cc,aksi.getNamaAksi());
+            cc++;
+        }
 
-            System.out.print("Masukkan pilihan: ");
-            int pilih = scanner.nextInt();
-            System.out.println(" ");
-            System.out.println("__________----------***********----------__________");
-            arrAksi.get(pilih-1).eksekusiAksi();
-
-
+        System.out.print("Masukkan pilihan: ");
+        int pilih = scanner.nextInt();
+        System.out.println(" ");
+        System.out.println("__________----------***********----------__________");
+        arrAksi.get(pilih-1).eksekusiAksi();
     }
 
     public void initPlayer() {
@@ -167,6 +164,7 @@ public class GameEngine {
         listNPC.add(npc2);
         listNPC.add(npc3);
     }
+
     public void initWilayah() {
         //wilayah 1
         arrWarga1.add(wargaWil1);
@@ -238,7 +236,9 @@ public class GameEngine {
 
 
         // wilayah 5
-        wargaWil5 = new NPC("Jesi", "Seorang warga yang tinggal dekat dengan Diavolos", wilayah5);
+        arrWarga5.add(wargaWil5);
+        wilayah5.setArrWarga(arrWarga5);
+        wargaWil5.addItem(senter);
         listMonster5.add(raja);
         listMonster5.add(elf);
         listMonster5.add(dwarf);
@@ -256,9 +256,10 @@ public class GameEngine {
         if(countWIl==0){
             setWilayahAktif(arrWilayah.get(countWIl));
             countWIl++;
-        }else if(wilAktif.getMonsterDisini().size()==0){
-            System.out.println("Misi di wilayah" +wilAktif+" selesai !!");
+        }else if(wilAktif.getMonsterDisini().size()==0 && countWIl!=5){
+            System.out.println("Misi di wilayah " + wilAktif.getNama() +" selesai !!");
             System.out.println("Selamat Anda memasuki wilayah berikutnya!");
+            player.setHp(100000);
             setWilayahAktif(arrWilayah.get(countWIl));
             countWIl++;
         }
@@ -299,9 +300,10 @@ public class GameEngine {
         System.out.println("    |\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         System.out.println("    |\t\t\t\t\t Akankah anda menjadi seorang penyelamat Negara Katara? \t\t\t\t|");
         System.out.println("    |\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        System.out.println("    |____________________________________________________________________________________________|");
-        System.out.println("  __/\\ \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t        /\\__");
-        System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t       |____|");
+        System.out.println("    |___________________________________________________________________________________________|");
+        System.out.println("  __/\\ \t\t\t\t\t\t\t\t\t\t   1.Info game\t\t\t\t\t\t\t\t       /\\__");
+        System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t2.Mulai Main Game\t\t\t\t\t\t\t       |____|");
+        System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t\t0.Keluar\t\t\t\t\t\t\t\t       |____|");
         System.out.println("    \\/__________________________________________________________________________________________\\/");
     }
 
@@ -316,6 +318,24 @@ public class GameEngine {
         System.out.println(" ");
     }
 
+    public void gameover(){
+        System.out.println(
+                " _______ ______ __      ________ ____  ____ ________ __________ __\n" +
+                        "|   ____|  ____|  |    |   __   |    \\/    |   __   |___    ___|  |\n" +
+                        "|  |____| |___ |  |    |  |__|  |   _  _   |  |__|  |   |  |   |  |\n" +
+                        "|____   |  ___||  |    |   __   |  | \\/ |  |   __   |   |  |   |__|\n" +
+                        " ____|  | |____|  |____|  |  |  |  |    |  |  |  |  |   |  |    __\n" +
+                        "|_______|______|_______|__|  |__|__|    |__|__|  |__|   |__|   |__|\n" +
+                        "\n" +
+                        " ________ ________ ____  ____ ______      ______ __        __ ______ _______\n" +
+                        "|   _____|   __   |    \\/    |  ____|\t /  __  \\  \\      /  |  ____|   __  \\\n" +
+                        "|  | ____|  |__|  |   _  _   | |___ \t|  /  \\  \\  \\    /  /| |___ |  |__| |\n" +
+                        "|  ||_   |   __   |  | \\/ |  |  ___|\t| |    | |\\  \\  /  / |  ___||      _/\n" +
+                        "|  |__|  |  |  |  |  |    |  | |____\t|  \\__/  | \\  \\/  /  | |____|  |\\  \\   _   _   _\n" +
+                        "|________|__|  |__|__|    |__|______|\t \\______/   \\____/   |______|__| \\__\\ |_| |_| |_|"
+        );
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GameEngine gameEngine = new GameEngine();
@@ -324,26 +344,28 @@ public class GameEngine {
         gameEngine.initWilayah();
         gameEngine.banner();
         int pilih1=1;
-        while (pilih1!=0){
-            System.out.println("\n__________----------***********----------__________");
-            System.out.println("1.Info game");
-            System.out.println("2.Mulai Main Game");
-            System.out.println("0.Keluar");
-            System.out.print("Masukkan Pilihan: ");
-            pilih1 = scanner.nextInt();
-            if (pilih1 == 1){
+        System.out.print("Masukkan Pilihan: ");
+        pilih1 = scanner.nextInt();
+        switch (pilih1) {
+            case 1:
                 gameEngine.infogame();
-                System.out.println(" ");
-            } else if (pilih1 == 2){
+                System.out.println("Press Enter key to continue...");
+                try {
+                    System.in.read();
+                }catch(Exception e){
+                }
+            case 2:
                 while (gameEngine.player.isAlive()) {
                     gameEngine.cekWilayah();
                     gameEngine.pilihanAksi();
                 }
                 break;
-            } else if (pilih1 == 0){
+            case 0:
                 System.out.println("Terima kasih telah mencoba, yuk lain kali kita main!!");
                 break;
-            }
+        }
+        if(!gameEngine.player.isAlive()){
+            gameEngine.gameover();
         }
     }
 }

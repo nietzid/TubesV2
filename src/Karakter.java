@@ -34,6 +34,7 @@ public class Karakter extends ElemenGame{
 
     public void prosesAksi(int idAksi){
         if (idAksi == 201){
+            System.out.println("__________----------***********----------__________");
             this.infoPlayer();
         }
         else if (idAksi == 301){
@@ -45,15 +46,22 @@ public class Karakter extends ElemenGame{
             super.prosesAksi(idAksi);
     }
 
-    public void serang(Karakter karakter) {
-        int temp = att-karakter.def;
+    public void serang(Karakter karakter){
         this.infoPlayer();
+        int temp;
+        if(karakter.getHp()-(att-karakter.def) < 0) {
+            temp = karakter.getHp();
+        }
+        else {
+            temp = att-karakter.def;
+        }
         if(temp > 0){
             karakter.hp -= temp;
-            System.out.println(this.nama + " Berhasil menyerang " + karakter.getNama() + " sebesar " + (att-karakter.getDef()));
+            System.out.println(this.nama + " Berhasil menyerang " + karakter.getNama() + " sebesar " + temp);
             System.out.println("");
-        }else
+        }else {
             System.out.println(this.nama + " Gagal menyerang " + karakter.getNama() );
+        }
         System.out.println();
     }
 
@@ -84,7 +92,7 @@ public class Karakter extends ElemenGame{
                 item.setLokasi(lokasi);
                 item.setDiambil(false);
                 isFind = true;
-
+                System.out.println(item.getNama() + " dibuang!");
             }
         }
         if (!isFind){
@@ -156,6 +164,7 @@ public class Karakter extends ElemenGame{
     }
 
     public void lihatTas(){
+        System.out.println("__________----------***********----------__________");
         System.out.println("Item yang ada di dalam tas");
         cc = 1;
         for (Item item: tas){
@@ -172,6 +181,7 @@ public class Karakter extends ElemenGame{
     }
 
     public void lihatPerlengkapan(){
+        System.out.println("__________----------***********----------__________");
         System.out.println("Perlengkapan sedang yang digunakan");
         cc = 1;
         for (Item item : equipment) {

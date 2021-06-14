@@ -11,7 +11,7 @@ public class Item extends ElemenGame{
         this.pemilik = pemilik;
     }
     public Item(String nama, String deskripsi,  Wilayah lokasi) {
-        super(deskripsi,nama);
+        super(nama,deskripsi);
         this.lokasi = lokasi;
     }
     public Item(String nama, String deskripsi) {
@@ -59,10 +59,12 @@ public class Item extends ElemenGame{
     }
 
     public void use(){
+        System.out.println(this.nama + " digunakan!");
         pemilik.TastoEquip(this);
     }
 
     public void disuse(){
+        System.out.println(this.nama + " disimpan ke dalam tas!");
         pemilik.EquiptoTas(this);
     }
 
