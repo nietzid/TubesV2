@@ -257,6 +257,8 @@ public class GameEngine {
             setWilayahAktif(arrWilayah.get(countWIl));
             countWIl++;
         }else if(wilAktif.getMonsterDisini().size()==0){
+            System.out.println("Misi di wilayah" +wilAktif+" selesai !!");
+            System.out.println("Selamat Anda memasuki wilayah berikutnya!");
             setWilayahAktif(arrWilayah.get(countWIl));
             countWIl++;
         }
@@ -304,6 +306,7 @@ public class GameEngine {
     }
 
     public void infogame(){
+        System.out.println("\n__________----------***********----------__________");
         System.out.println("Cara Bermain: ");
         System.out.println("Anda harus menjelajahi 5 wilayah di Negara Katara secara berurutan.");
         System.out.println("4 wilayah pedesaan dan 1 singgasana Iblis.");
@@ -322,14 +325,13 @@ public class GameEngine {
         gameEngine.banner();
         int pilih1=1;
         while (pilih1!=0){
-            System.out.println("__________----------***********----------__________");
+            System.out.println("\n__________----------***********----------__________");
             System.out.println("1.Info game");
             System.out.println("2.Mulai Main Game");
             System.out.println("0.Keluar");
             System.out.print("Masukkan Pilihan: ");
             pilih1 = scanner.nextInt();
             if (pilih1 == 1){
-                System.out.println("__________----------***********----------__________");
                 gameEngine.infogame();
                 System.out.println(" ");
             } else if (pilih1 == 2){
@@ -339,7 +341,7 @@ public class GameEngine {
                 }
                 break;
             } else if (pilih1 == 0){
-                System.out.println("Bye");
+                System.out.println("Terima kasih telah mencoba, yuk lain kali kita main!!");
                 break;
             }
         }
