@@ -249,13 +249,14 @@ public class GameEngine {
         arrWilayah.add(wilayah5);
     }
 
+    int countWIl=0;
     public void cekWilayah(){
-        if(wilAktif.getMonsterDisini().size()==0){
-            int getposition;
-            //pindah wilayah
-//            wilAktif =
-
+        if(countWIl==0){
+            setWilayahAktif(arrWilayah.get(countWIl));
+        }else if(wilAktif.getMonsterDisini().size()==0){
+            setWilayahAktif(arrWilayah.get(countWIl));
         }
+        countWIl++;
     }
 
     public void setWilayahAktif(Wilayah wilayahAktif){
@@ -275,24 +276,25 @@ public class GameEngine {
         gameEngine.initNPC();
         gameEngine.initWilayah();
         System.out.println("DEMON HUNTER");
-        System.out.println("lanjut info game");
 
-        System.out.println("1.Mulai Main Game");
-        System.out.println("2.Keluar");
+        System.out.println("1.Info game");
+        System.out.println("2.Mulai Main Game");
+        System.out.println("0.Keluar");
         System.out.print("Masukkan Pilihan: ");
         int pilih1 = scanner.nextInt();
         System.out.println(" ");
-        if (pilih1 == 1){
-            while(gameEngine.player.isAlive()){
-                gameEngine.setWilayahAktif(gameEngine.wilayah1);
-                gameEngine.pilihanAksi();
-            }
-
-        }else {
-            System.out.println("Bye");
-
+        switch (pilih1) {
+            case 1:
+                System.out.println("blm ada");
+            case 2:
+                while (gameEngine.player.isAlive()) {
+                    gameEngine.cekWilayah();
+                    gameEngine.pilihanAksi();
+                }
+                break;
+            case 0:
+                System.out.println("Bye");
+                break;
         }
-
-//        System.out.println(gameEngine.wilayah2.getArrWarga().get(0).getLoot());
     }
 }

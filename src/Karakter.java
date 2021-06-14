@@ -29,6 +29,7 @@ public class Karakter extends ElemenGame{
         super.initArrAksi();
         arrAksi.add(new Aksi("Lihat info player",201,this));
         arrAksi.add(new Aksi("Lihat isi tas",301,this));
+        arrAksi.add(new Aksi("Lihat perlengkapan yang digunakan ",401,this));
     }
 
     public void prosesAksi(int idAksi){
@@ -37,6 +38,8 @@ public class Karakter extends ElemenGame{
         }
         else if (idAksi == 301){
             this.lihatTas();
+        }else if (idAksi == 401){
+            this.lihatPerlengkapan();
         }
         else
             super.prosesAksi(idAksi);
@@ -44,12 +47,14 @@ public class Karakter extends ElemenGame{
 
     public void serang(Karakter karakter) {
         int temp = att-karakter.def;
+        this.infoPlayer();
         if(temp > 0){
             karakter.hp -= temp;
             System.out.println(this.nama + " Berhasil menyerang " + karakter.getNama() + " sebesar " + (att-karakter.getDef()));
             System.out.println("");
         }else
             System.out.println(this.nama + " Gagal menyerang " + karakter.getNama() );
+        System.out.println();
     }
 
     public void addItem(Item item) {
@@ -150,19 +155,6 @@ public class Karakter extends ElemenGame{
         System.out.println("att   = " + att);
         System.out.println("def   = " + def);
         cc = 1;
-        if(equipment.size() != 0 && lokasi.getKarakterAktif() == this) {
-            System.out.println("Isi equipment");
-            for (Item item : equipment) {
-                System.out.printf("%d. %s \n", cc, item.getNama());
-                cc++;
-            }
-
-            System.out.println("Masukkan pilihan: ");
-            int pilih = in.nextInt();
-            Item selectedItem = equipment.get(pilih - 1);
-            selectedItem.pilihanAksi();
-
-        }
     }
 
     public void lihatTas(){
@@ -171,10 +163,29 @@ public class Karakter extends ElemenGame{
             System.out.printf("%d. %s \n",cc,item.getNama());
             cc++;
         }
+        System.out.println("0. Kembali");
         System.out.println("Masukkan pilihan: ");
         int pilih = in.nextInt();
-        Item selectedItem = tas.get(pilih-1);
-        selectedItem.pilihanAksi();
+        if(pilih!=0) {
+            Item selectedItem = tas.get(pilih - 1);
+            selectedItem.pilihanAksi();
+        }
+    }
+
+    public void lihatPerlengkapan(){
+        System.out.println("Perlengkapan yang digunakan");
+        cc = 1;
+        for (Item item : equipment) {
+            System.out.printf("%d. %s \n", cc, item.getNama());
+            cc++;
+        }
+        System.out.println("0. Kembali");
+        System.out.println("Masukkan pilihan: ");
+        int pilih = in.nextInt();
+        if(pilih!=0) {
+            Item selectedItem = equipment.get(pilih - 1);
+            selectedItem.pilihanAksi();
+        }
     }
 
     //getter setter

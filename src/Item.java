@@ -21,13 +21,13 @@ public class Item extends ElemenGame{
     public void initArrAksi (){
         super.initArrAksi();
         arrAksi.add(new Aksi("Lihat Status Item",102,this));
-        if(this.isDipegang){
-            arrAksi.add(new Aksi("Lepaskan",201,this));
-        }
-        else{
-            arrAksi.add(new Aksi("Gunakan",202,this));
-        }
         if(this.isDiambil){
+            if(this.isDipegang){
+                arrAksi.add(new Aksi("Lepaskan (Simpan kedalam tas)",201,this));
+            }
+            else{
+                arrAksi.add(new Aksi("Gunakan",202,this));
+            }
             arrAksi.add(new Aksi("Buang Item",301,this));
         }
         else{

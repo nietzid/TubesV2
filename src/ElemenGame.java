@@ -19,6 +19,7 @@ public class ElemenGame {
     //prosedur untuk mengisi aksi
     public void initArrAksi (){
         arrAksi.clear();
+        arrAksi.add(new Aksi("Kembali",001,this));
         arrAksi.add(new Aksi("Deskripsikan",101,this));
     }
 
@@ -26,6 +27,8 @@ public class ElemenGame {
     public void prosesAksi(int idAksi){
         if (idAksi == 101){
             System.out.printf("Deskripsi: %s \n",deskripsi);
+        }else if (idAksi == 001){
+            System.out.println();
         }
     }
 

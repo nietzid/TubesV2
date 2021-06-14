@@ -60,14 +60,18 @@ public class Wilayah extends ElemenGame{
 
     public void lihatItem(){
         cc = 1;
+        System.out.println("Item yang tersedia :");
         for (Item item: loot){
             System.out.printf("%d. %s \n",cc,item.getNama());
             cc++;
         }
+        System.out.println("0. Kembali");
         System.out.println("Masukkan pilihan: ");
         int pilih = in.nextInt();
-        Item selectedItem = loot.get(pilih-1);
-        selectedItem.pilihanAksi();
+        if(pilih!=0) {
+            Item selectedItem = loot.get(pilih - 1);
+            selectedItem.pilihanAksi();
+        }
     }
 
     public Karakter pilihMusuh(){
