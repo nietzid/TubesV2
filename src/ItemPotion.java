@@ -6,10 +6,12 @@ public class ItemPotion extends Item{
     public ItemPotion(String nama, String deskripsi, Karakter pemilik, int efek) {
         super(nama,deskripsi,pemilik);
         this.efek = efek;
+        kemampuan = "+" + efek + " HP";
     }
     public ItemPotion(String nama, String deskripsi, Wilayah lokasi, int efek) {
         super(nama,deskripsi,lokasi);
         this.efek = efek;
+        kemampuan = "+" + efek + " HP";
     }
 
     public void prosesAksi(int idAksi) {

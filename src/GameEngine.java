@@ -255,10 +255,11 @@ public class GameEngine {
     public void cekWilayah(){
         if(countWIl==0){
             setWilayahAktif(arrWilayah.get(countWIl));
+            countWIl++;
         }else if(wilAktif.getMonsterDisini().size()==0){
             setWilayahAktif(arrWilayah.get(countWIl));
+            countWIl++;
         }
-        countWIl++;
     }
 
     public void setWilayahAktif(Wilayah wilayahAktif){
@@ -271,12 +272,7 @@ public class GameEngine {
         wilAktif = wilayahAktif;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        GameEngine gameEngine = new GameEngine();
-        gameEngine.initPlayer();
-        gameEngine.initNPC();
-        gameEngine.initWilayah();
+    public void banner(){
         System.out.println(" _______  ______ ____  ____  ______  ____    __ ");
         System.out.println("|  ____ \\|  ____|    \\/    |/  __  \\|    \\  |  | ");
         System.out.println("| |    | | |___ |   _  _   |  /  \\  |     \\ |  | ");
@@ -289,7 +285,6 @@ public class GameEngine {
         System.out.println("\t\t\t\t\t\t|   ________   |  |  |  |  |\\  \\|  |   |  |   |  ___||      _/");
         System.out.println("\t\t\t\t\t\t|  |        |  |  |__|  |  | \\     |   |  |   | |____|  |\\  \\   _   _   _");
         System.out.println("\t\t\t\t\t\t|__|        |__|________|__|  \\____|   |__|   |______|__| \\__\\ |_| |_| |_|\n");
-//        opening.clearScreen;
         System.out.println("     ____________________________________________________________________________________________");
         System.out.println("  __/\\ \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t        /\\__");
         System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t       |____|");
@@ -306,9 +301,25 @@ public class GameEngine {
         System.out.println("  __/\\ \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t        /\\__");
         System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t       |____|");
         System.out.println("    \\/__________________________________________________________________________________________\\/");
-        System.out.println(" ");
-        System.out.println(" ");
+    }
 
+    public void infogame(){
+        System.out.println("Cara Bermain: ");
+        System.out.println("Anda harus menjelajahi 5 wilayah di Negara Katara secara berurutan.");
+        System.out.println("4 wilayah pedesaan dan 1 singgasana Iblis.");
+        System.out.println("Di setiap wilayah anda harus membunuh semua Iblis,");
+        System.out.println("lalu secara otomatis akan menuju ke wilayah berikutnya.");
+        System.out.println("Di setiap wilayah anda bisa mengambil item untuk melawan Iblis.");
+        System.out.println(" ");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        GameEngine gameEngine = new GameEngine();
+        gameEngine.initPlayer();
+        gameEngine.initNPC();
+        gameEngine.initWilayah();
+        gameEngine.banner();
         int pilih1=1;
         while (pilih1!=0){
             System.out.println("__________----------***********----------__________");
@@ -317,15 +328,9 @@ public class GameEngine {
             System.out.println("0.Keluar");
             System.out.print("Masukkan Pilihan: ");
             pilih1 = scanner.nextInt();
-
             if (pilih1 == 1){
                 System.out.println("__________----------***********----------__________");
-                System.out.println("Cara Bermain: ");
-                System.out.println("Anda harus menjelajahi 5 wilayah di Negara Katara secara berurutan.");
-                System.out.println("4 wilayah pedesaan dan 1 singgasana Iblis.");
-                System.out.println("Di setiap wilayah anda harus membunuh semua Iblis,");
-                System.out.println("lalu secara otomatis akan menuju ke wilayah berikutnya.");
-                System.out.println("Di setiap wilayah anda bisa mengambil item untuk melawan Iblis.");
+                gameEngine.infogame();
                 System.out.println(" ");
             } else if (pilih1 == 2){
                 while (gameEngine.player.isAlive()) {
@@ -337,26 +342,6 @@ public class GameEngine {
                 System.out.println("Bye");
                 break;
             }
-
-//            switch (pilih1) {
-//                case 1:
-//                    System.out.println("Cara Bermain: ");
-//                    System.out.println("Anda harus menjelajahi 5 wilayah di Negara Katara secara berurutan.");
-//                    System.out.println("4 wilayah pedesaan dan 1 singgasana Iblis.");
-//                    System.out.println("Di setiap wilayah anda harus membunuh semua Iblis,");
-//                    System.out.println("lalu secara otomatis akan menuju ke wilayah berikutnya.");
-//                    System.out.println("Di setiap wilayah anda bisa mengambil item untuk melawan Iblis.");
-//                case 2:
-//                    while (gameEngine.player.isAlive()) {
-//                        gameEngine.cekWilayah();
-//                        gameEngine.pilihanAksi();
-//                    }
-//                    break;
-//                case 0:
-//                    System.out.println("Bye");
-//                    break;
-//            }
-
         }
     }
 }

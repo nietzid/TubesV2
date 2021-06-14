@@ -106,7 +106,6 @@ public class Karakter extends ElemenGame{
             equipment.add(item);
             tas.remove(item);
             slot++;
-//            System.out.println("Slot tersisa saat ini " + (maxSlot - slot) + " slot");
         } else System.out.println("Slot Equipment Penuh");
     }
 
@@ -148,19 +147,19 @@ public class Karakter extends ElemenGame{
     }
 
     public void infoPlayer(){
-        System.out.println("Nama  = " + nama);
-        System.out.println("level = " + level);
-        System.out.println("exp   = " + exp);
-        System.out.println("hp    = " + hp);
-        System.out.println("att   = " + att);
-        System.out.println("def   = " + def);
-        cc = 1;
+        System.out.println("Nama Player = " + nama);
+        System.out.println("Level = " + level);
+        System.out.println("Experience Points  = " + exp);
+        System.out.println("Health Points  = " + hp);
+        System.out.println("Attack Points  = " + att);
+        System.out.println("Defense   = " + def);
     }
 
     public void lihatTas(){
+        System.out.println("Item yang ada di dalam tas");
         cc = 1;
         for (Item item: tas){
-            System.out.printf("%d. %s \n",cc,item.getNama());
+            System.out.printf("%d. %s (%s)\n",cc,item.getNama(),item.getKemampuan());
             cc++;
         }
         System.out.println("0. Kembali");
@@ -173,10 +172,10 @@ public class Karakter extends ElemenGame{
     }
 
     public void lihatPerlengkapan(){
-        System.out.println("Perlengkapan yang digunakan");
+        System.out.println("Perlengkapan sedang yang digunakan");
         cc = 1;
         for (Item item : equipment) {
-            System.out.printf("%d. %s \n", cc, item.getNama());
+            System.out.printf("%d. %s (%s)\n", cc, item.getNama(),item.getKemampuan());
             cc++;
         }
         System.out.println("0. Kembali");

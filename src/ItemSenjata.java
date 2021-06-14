@@ -6,10 +6,12 @@ public class ItemSenjata extends Item{
     public ItemSenjata(String nama, String deskripsi, Karakter pemilik, int att) {
         super(nama,deskripsi,pemilik);
         this.att = att;
+        kemampuan = "+" + att + " Attack";
     }
     public ItemSenjata(String nama, String deskripsi, Wilayah lokasi, int att) {
         super(nama,deskripsi,lokasi);
         this.att = att;
+        kemampuan = "+" + att + " Attack";
     }
 
     public void prosesAksi(int idAksi) {

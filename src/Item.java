@@ -4,6 +4,7 @@ public class Item extends ElemenGame{
     protected Wilayah lokasi;
     protected boolean isDiambil = false;
     protected boolean isDipegang = false;
+    protected String kemampuan;
 
     public Item(String nama, String deskripsi,  Karakter pemilik) {
         super(nama,deskripsi);
@@ -99,5 +100,13 @@ public class Item extends ElemenGame{
 
     public void setDiambil(boolean diambil) {
         isDiambil = diambil;
+    }
+
+    public String getKemampuan() {
+        return kemampuan;
+    }
+
+    public void setKemampuan(String kemampuan) {
+        this.kemampuan = kemampuan;
     }
 }

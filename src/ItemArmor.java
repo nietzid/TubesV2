@@ -6,10 +6,12 @@ public class ItemArmor extends Item{
     public ItemArmor(String nama, String deskripsi, Karakter pemilik, int def) {
         super(nama,deskripsi,pemilik);
         this.def = def;
+        kemampuan = "+" + def + " Defense";
     }
     public ItemArmor(String nama, String deskripsi, Wilayah lokasi, int def) {
         super(nama,deskripsi,lokasi);
         this.def = def;
+        kemampuan = "+" + def + " Defense";
     }
 
     public void prosesAksi(int idAksi) {
