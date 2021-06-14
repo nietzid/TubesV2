@@ -275,26 +275,82 @@ public class GameEngine {
         gameEngine.initPlayer();
         gameEngine.initNPC();
         gameEngine.initWilayah();
-        System.out.println("DEMON HUNTER");
+        System.out.println(" _______  ______ ____  ____  ______  ____    __ ");
+        System.out.println("|  ____ \\|  ____|    \\/    |/  __  \\|    \\  |  | ");
+        System.out.println("| |    | | |___ |   _  _   |  /  \\  |     \\ |  | ");
+        System.out.println("| |    | |  ___||  | \\/ |  | |    | |  |\\  \\|  | ");
+        System.out.println("| |____| | |____|  |    |  |  \\__/  |  | \\     |");
+        System.out.println("|_______/|______|__|    |  |\\______/|  |  \\____| ");
+        System.out.println("\t\t\t\t\t\t|  |        |  |__    __ ____    __ __________ ______ _______");
+        System.out.println("\t\t\t\t\t\t|  |        |  |  |  |  |    \\  |  |___    ___|  ____|   __  \\");
+        System.out.println("\t\t\t\t\t\t|  |________|  |  |  |  |     \\ |  |   |  |   | |___ |  |__| |");
+        System.out.println("\t\t\t\t\t\t|   ________   |  |  |  |  |\\  \\|  |   |  |   |  ___||      _/");
+        System.out.println("\t\t\t\t\t\t|  |        |  |  |__|  |  | \\     |   |  |   | |____|  |\\  \\   _   _   _");
+        System.out.println("\t\t\t\t\t\t|__|        |__|________|__|  \\____|   |__|   |______|__| \\__\\ |_| |_| |_|\n");
+//        opening.clearScreen;
+        System.out.println("     ____________________________________________________________________________________________");
+        System.out.println("  __/\\ \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t        /\\__");
+        System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t       |____|");
+        System.out.println("    \\/__________________________________________________________________________________________\\/");
+        System.out.println("    |\t\t\t\t\t\t\t\tSELAMAT DATANG DI NEGARA KATARA!\t\t\t\t\t\t\t|");
+        System.out.println("    |\t\t\t\t\t Negara ini telah dikutuk oleh raja iblis bernama ASIL!\t\t\t\t\t|");
+        System.out.println("    |\t\t\t Raja Iblis telah menganggu kedamaian selama bertahun tahun lamanya \t\t\t|");
+        System.out.println("    |\t\t\t\t\t\t\t\tdan membuat rakyat sengsara.\t\t\t\t\t\t\t\t|");
+        System.out.println("    |\t\t Negara Katara saat ini penuh kegelapan dengan monster yang berada dimana-mana. \t|");
+        System.out.println("    |\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+        System.out.println("    |\t\t\t\t\t Akankah anda menjadi seorang penyelamat Negara Katara? \t\t\t\t|");
+        System.out.println("    |\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+        System.out.println("    |____________________________________________________________________________________________|");
+        System.out.println("  __/\\ \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t        /\\__");
+        System.out.println(" |____|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t       |____|");
+        System.out.println("    \\/__________________________________________________________________________________________\\/");
 
-        System.out.println("1.Info game");
-        System.out.println("2.Mulai Main Game");
-        System.out.println("0.Keluar");
-        System.out.print("Masukkan Pilihan: ");
-        int pilih1 = scanner.nextInt();
-        System.out.println(" ");
-        switch (pilih1) {
-            case 1:
-                System.out.println("blm ada");
-            case 2:
+        int pilih1=1;
+        while (pilih1!=0){
+            System.out.println("1.Info game");
+            System.out.println("2.Mulai Main Game");
+            System.out.println("0.Keluar");
+            System.out.print("Masukkan Pilihan: ");
+            pilih1 = scanner.nextInt();
+
+            if (pilih1 == 1){
+                System.out.println("Cara Bermain: ");
+                System.out.println("Anda harus menjelajahi 5 wilayah di Negara Katara secara berurutan.");
+                System.out.println("4 wilayah pedesaan dan 1 singgasana Iblis.");
+                System.out.println("Di setiap wilayah anda harus membunuh semua Iblis,");
+                System.out.println("lalu secara otomatis akan menuju ke wilayah berikutnya.");
+                System.out.println("Di setiap wilayah anda bisa mengambil item untuk melawan Iblis.");
+                System.out.println(" ");
+            } else if (pilih1 == 2){
                 while (gameEngine.player.isAlive()) {
                     gameEngine.cekWilayah();
                     gameEngine.pilihanAksi();
                 }
                 break;
-            case 0:
+            } else if (pilih1 == 0){
                 System.out.println("Bye");
                 break;
+            }
+
+//            switch (pilih1) {
+//                case 1:
+//                    System.out.println("Cara Bermain: ");
+//                    System.out.println("Anda harus menjelajahi 5 wilayah di Negara Katara secara berurutan.");
+//                    System.out.println("4 wilayah pedesaan dan 1 singgasana Iblis.");
+//                    System.out.println("Di setiap wilayah anda harus membunuh semua Iblis,");
+//                    System.out.println("lalu secara otomatis akan menuju ke wilayah berikutnya.");
+//                    System.out.println("Di setiap wilayah anda bisa mengambil item untuk melawan Iblis.");
+//                case 2:
+//                    while (gameEngine.player.isAlive()) {
+//                        gameEngine.cekWilayah();
+//                        gameEngine.pilihanAksi();
+//                    }
+//                    break;
+//                case 0:
+//                    System.out.println("Bye");
+//                    break;
+//            }
+
         }
     }
 }
